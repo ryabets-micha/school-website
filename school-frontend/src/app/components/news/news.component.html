@@ -1,0 +1,36 @@
+<div class="container-fluid admin-page-wrapper">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center pt-3">
+      <a routerLink="{{'/news/-1'}}" class="btn btn-success">Створити новину</a>
+      <button class="btn btn-primary" (click)="logout()">Вийти</button>
+    </div>
+    <div class="text-center">
+      <h1>Новини школи</h1>
+      <p>Тут ви можете додавати, редагувати та видаляти новини.</p>
+      <div *ngIf="newsArr && newsArr.length === 0">
+        <h2>Наразі не знайдено жодної публікації...</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let news of newsArr">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex card-head">
+              <small class="text-muted">Автор: {{ news.author }}  /</small>
+              <small class="text-muted">Дата: {{ formatDate(news.created) }}  </small>
+            </div>
+
+            <h2 class="card-img-top">{{ formatNewsTitle(news.title) }}</h2>
+            <p class="card-text">{{ formatNewsBody(news.body) }}</p>
+
+            <div class="d-flex justify-content-between align-items-center btn-container">
+                <a routerLink="{{'/news/' + news.id}}" class="btn btn-warning">Редагувати</a>
+                <button class="btn btn-danger" (click)="deleteNews(news.id)">Видалити</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid admin-page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto card-wrapper">
+        <div class="card card-signin">
+          <div class="card-body">
+            <h5 class="card-title text-center">Вхід</h5>
+            <p class="alert alert-danger" *ngIf="isError">
+              Неправильне ім'я користувача або пароль
+            </p>
+            <div class="form-signin">
+              <div class="form-label-group">
+                <input type="text"
+                       id="inputUsername"
+                       class="form-control"
+                       placeholder="Ім'я користувача"
+                       required autofocus
+                       [(ngModel)]="username">
+                <label for="inputUsername">Ім'я користувача</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password"
+                       id="inputPassword"
+                       class="form-control"
+                       placeholder="Пароль"
+                       required
+                       [(ngModel)]="password">
+                <label for="inputPassword">Пароль</label>
+              </div>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="login()">Увійти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

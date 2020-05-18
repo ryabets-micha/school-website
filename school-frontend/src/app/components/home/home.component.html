@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="center-text">
+      <h2>
+        Ласкаво просимо до нашої школи
+      </h2>
+      <p>тут ви можете ознайомитись з шкільними заходами, розкладом, новинами і багатьма іншими цікавими речами з життя ваших дітей, друзів та знайомих</p>
+    </div>
+    <div class="row small-news" *ngIf="newsArr && newsArr.length">
+      <div class="col-sm-12 col-md-4" *ngFor="let news of newsArr">
+        <div class="small-news-item">
+          <h4 class="small-news-title">{{ formatNewsTitle(news.title) }}</h4>
+          <p class="small-news-body">{{ formatNewsBody(news.body) }}</p>
+          <div class="small-news-author"><small>Автор: {{ news.author }} / Дата: {{ formatDate(news.created) }}</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
