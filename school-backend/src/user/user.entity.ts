@@ -1,7 +1,8 @@
-import {BeforeInsert, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
 import {UserRo} from "./user.dto";
+import {NewsEntity} from "../news/news.entity";
 
 @Entity('user')
 export class UserEntity {
@@ -17,6 +18,9 @@ export class UserEntity {
     @Column('text')
     password: string;
 
+    @OneToMany(type => NewsEntity, news => news.creator)
+    news: NewsEntity;
+
     @BeforeInsert()
     async hashPassword() {
         this.password = await bcrypt.hash(this.password, 10);
@@ -26,9 +30,8 @@ export class UserEntity {
         const { id, created, username, token } = this;
         const responseObject: UserRo = { id, created, username };
 
-        if (showToken) {
-            responseObject.token = token;
-        }
+        if (showToken) responseObject.token = token;
+        if (this.news) responseObject.news = this.news;
 
         return responseObject;
     }

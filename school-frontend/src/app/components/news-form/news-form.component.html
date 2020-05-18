@@ -1,0 +1,23 @@
+<div class="container-fluid admin-page-wrapper">
+  <div class="container">
+    <form>
+      <h4>Створити новину</h4>
+      <div class="form-group">
+        <label for="title">Заголовок</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="newsData.title" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <label for="body">Текст новини</label>
+        <textarea id="body" cols="30" rows="5" [(ngModel)]="newsData.body" [ngModelOptions]="{standalone: true}" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="author">Автор</label>
+        <input type="text" class="form-control" id="author" [(ngModel)]="newsData.author" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-warning" (click)="goBack()">Назад</button>
+        <button type="submit" class="btn btn-primary ml-auto" (click)="createOrUpdateNews()">Зберегти</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>Останні новини</h1>
+
+    <div class="news-item" *ngFor="let news of newsArr" (click)="goToNewsDetails(news.id)">
+      <h2>{{ formatNewsTitle(news.title) }}</h2>
+      <p>{{ formatNewsBody(news.body) }}</p>
+      <p><small>Автор: {{ news.author }} / Дата: {{ formatDate(news.created) }}</small></p>
+    </div>
+
+    <div *ngIf="!newsArr || newsArr.length === 0">
+      <h2 style="text-align: center;text-shadow: 0 0 20px #fff">Наразі не знайдено жодної публікації...</h2>
+    </div>
+  </div>
+</div>

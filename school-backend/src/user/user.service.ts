@@ -12,7 +12,7 @@ export class UserService {
     ) {}
 
     async showAll(): Promise<UserRo[]> {
-        const users = await this.userRepository.find();
+        const users = await this.userRepository.find({ relations: ['news'] });
         return users.map(user => user.toResponseObject(false));
     }
 
@@ -28,12 +28,10 @@ export class UserService {
     }
 
     async register(data: UserDto): Promise<UserRo> {
-        const { username, password } = data;
+        const { username } = data;
         let user = await this.userRepository.findOne({ where: { username } });
 
-        if (user) {
-            throw new HttpException('User already exist', HttpStatus.BAD_REQUEST);
-        }
+        if (user) throw new HttpException('User already exist', HttpStatus.BAD_REQUEST);
 
         user = await this.userRepository.create(data);
         await this.userRepository.save(user);

@@ -1,4 +1,5 @@
-import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
+import {UserEntity} from "../user/user.entity";
 
 @Entity('news')
 export class NewsEntity {
@@ -15,11 +16,11 @@ export class NewsEntity {
     title: string;
 
     @Column('text')
-    description: string;
-
-    @Column('text')
     body: string;
 
     @Column('text')
     author: string;
+
+    @ManyToOne(type => UserEntity, creator => creator.news)
+    creator: UserEntity;
 }

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="container">
+    <h3>Розклад дзвінків</h3>
+    <div class="table">
+      <div class="tr">
+        <div class="td">№ уроку</div>
+        <div class="td">Початок</div>
+        <div class="td">Кінець</div>
+        <div class="td">Перерва</div>
+      </div>
+      <div class="tr" *ngFor="let hour of hours; let i = index;">
+        <div class="td">{{ i + 1 }}</div>
+        <div class="td">{{ hour.start }}</div>
+        <div class="td">{{ hour.end }}</div>
+        <div class="td">{{ hour.pause }}</div>
+      </div>
+    </div>
+
+    <h3>Розклад уроків на І семестр:</h3>
+    <div class="btns-wrapper">
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/5-ti.docx">5-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/6-ti.docx">6-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/7-mi.docx">7-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/8-ti.docx">8-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/9-ti.docx">9-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/10-ti.docx">10-ті класи</a>
+      <a href="https://sch32.edu.vn.ua/images/ROZKLAD/11-ti.docx">11-ті класи</a>
+    </div>
+  </div>
+</div>

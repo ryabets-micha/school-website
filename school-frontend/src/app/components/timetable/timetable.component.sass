@@ -1,0 +1,55 @@
+.container-fluid
+  background: #007bff
+  background: linear-gradient(to right, #674be6, #2038ff)
+
+.container
+  padding-bottom: 20px
+  &>h3
+    text-align: center
+    color: #fff
+    text-shadow: 0 0 10px rgba(0, 0, 0, .7)
+    font-weight: bold
+    padding: 20px 0
+
+  &>.table
+    margin: auto
+    color: #ffffff
+    display: flex
+    flex-direction: column
+    align-items: center
+    &>.tr
+      border-radius: 5px
+      border: 2px solid #e6a9df
+      display: flex
+      justify-content: center
+      align-items: center
+      margin-bottom: 5px
+      &:first-child
+        font-weight: bold
+        background-color: rgba(#fff, .4)
+        text-shadow: 0 0 5px #000
+      &:nth-child(even)
+        background-color: rgba(#000, .3)
+      &>.td
+        width: 120px
+        padding: 10px 20px
+        text-align: center
+        border-right: 2px solid #e6a9df
+        &:last-child
+          border-right: none
+
+.btns-wrapper
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  align-items: center
+  &>a
+    display: block
+    padding: 5px 10px
+    margin: 5px
+    background-color: rgba(#fff, .2)
+    font-size: 25px
+    color: #ffffff
+    border-radius: 5px
+    &:hover
+      box-shadow: 0 0 10px rgba(#fff, .7)

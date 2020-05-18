@@ -1,4 +1,5 @@
 import {IsNotEmpty} from "class-validator";
+import {NewsEntity} from "../news/news.entity";
 
 export class UserDto {
     @IsNotEmpty()
@@ -13,4 +14,5 @@ export class UserRo {
     username: string;
     created: Date;
     token?: string;
+    news?: NewsEntity;
 }
